@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'scopy'
+  s.name        = 'scoppie'
   s.version     = '0.0.1'
   s.date        = '2016-10-22'
   s.summary     = "Scope Handler"
@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.files       = Dir["README.md", "lib/**/*"]
   s.require_paths = ["lib"]
   s.homepage    =
-    'https://github.com/gedean/scopy'
+    'https://github.com/gedean/scoppie'
   s.license       = 'MIT'
 end
