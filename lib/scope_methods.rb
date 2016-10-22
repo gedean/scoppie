@@ -25,10 +25,6 @@ module ScopeMethods
 			scope[0..3].to_i			
 		end
 
-		def short_year scope
-			scope[2..3]
-		end
-
 		def month scope
 			scope[-2, 2].to_i
 		end
