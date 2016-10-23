@@ -9,5 +9,6 @@ class Scope
 	def initialize value
 		fail "Invalid Scope (#{value})" unless Scope.valid? value
 		@value = value
+		@short_value = get_short_value
 	end
 end

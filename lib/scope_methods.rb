@@ -21,6 +21,8 @@ module ScopeMethods
 			valid_month?(month(scope)) and valid_year?(year(scope))
 		end
 
+
+
 		def year scope
 			scope[0..3].to_i			
 		end
@@ -64,6 +66,10 @@ module ScopeMethods
 			Scope.month @value
 		end
 
+		def month_to_s
+			month < 10 ? "0#{month.to_i}" : "#{month.to_i}"
+		end
+
 		def prior
 			date = Scope.scope_to_date(@value).prev_month
 			Scope.date_to_scope date
@@ -85,6 +91,11 @@ module ScopeMethods
 		def <=>(other)
 			to_date <=> other.to_date
 		end
+
+private
+		def get_short_value
+			"#{year - 2000}#{month_to_s}"
+		end		
 	end
 
 	def self.included receiver
