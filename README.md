@@ -1,3 +1,3 @@
 # Scoppie
 
-Easy handle of Ministry of Health files scope (Year and Month)
+Easy handling of Brazilian's Ministry of Health files scopes (Year and Month)
