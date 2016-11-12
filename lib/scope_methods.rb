@@ -21,8 +21,6 @@ module ScopeMethods
 			valid_month?(month(scope)) and valid_year?(year(scope))
 		end
 
-
-
 		def year scope
 			scope[0..3].to_i			
 		end
@@ -50,6 +48,8 @@ module ScopeMethods
 	end
 
 	module IntanceMethods
+		MIN_ACCEPTED_YEAR = 2000
+
 		def valid?
 			Scope.valid? @value
 		end
@@ -75,10 +75,18 @@ module ScopeMethods
 			Scope.date_to_scope date
 		end
 
+		def prior!
+			@value = self.prior
+		end
+
 		def next
 			date = Scope.scope_to_date(@value).next_month
 			Scope.date_to_scope date
 		end
+
+		def next!
+			@value = self.next
+		end		
 
 		def to_i
 			@value.to_i
@@ -94,6 +102,7 @@ module ScopeMethods
 
 private
 		def get_short_value
+			raise "year (#{year}) shorten than #{MIN_ACCEPTED_YEAR}" if  year < MIN_ACCEPTED_YEAR
 			"#{year - 2000}#{month_to_s}"
 		end		
 	end
