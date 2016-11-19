@@ -17,16 +17,16 @@ module ScopeMethods
 			amonth < 10 ? "#{ayear}0#{amonth.to_i}" : "#{ayear}#{amonth.to_i}"
 		end
 
-		def valid? scope
-			valid_month?(month(scope)) and valid_year?(year(scope))
+		def valid? scope_value
+			valid_month?(month(scope_value)) and valid_year?(year(scope_value))
 		end
 
-		def year scope
-			scope[0..3].to_i			
+		def year scope_value
+			scope_value[0..3].to_i			
 		end
 
-		def month scope
-			scope[-2, 2].to_i
+		def month scope_value
+			scope_value[-2, 2].to_i
 		end
 
 		def date_to_scope date
@@ -37,7 +37,6 @@ module ScopeMethods
 			Date.new(year(scope), month(scope))
 		end
 
-	private
 		def valid_month? month_in_number
 			month_in_number.between? 1, 12
 		end
