@@ -14,19 +14,19 @@ describe Scope do
 	end
 
 	it 'returns false to a invalid month' do
-		expect(Scope.valid_month? 13).to .eq false
+		expect(Scope.valid_month? 13).to eq false
 	end
 
 	it 'returns true to a valid year' do
-		expect(Scope.valid_year? 2016).eq true
+		expect(Scope.valid_year? 2016).to eq true
 	end
 	
 	it 'returns false to a invalid year' do
-		expect(Scope.valid_year? 3001).eq false
+		expect(Scope.valid_year? 3001).to eq false
 	end
 
 	it 'returns true to a valid scope' do
-		expect(Scope.valid? 201610).to eq true
+		expect(Scope.valid? '201610').to eq true
 	end
 
 	it 'returns a valid month' do

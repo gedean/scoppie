@@ -3,7 +3,7 @@ require 'date'
 module ScopeMethods
 	include Comparable
 	
-	module ClassMethods
+	module ClassMethods 
 
 		def make_scope ayear, amonth
 			scope_string = Scope.build_scope_string ayear, amonth
@@ -18,15 +18,16 @@ module ScopeMethods
 		end
 
 		def valid? scope_value
+			scope_value = scope_value.to_s
 			valid_month?(month(scope_value)) and valid_year?(year(scope_value))
 		end
 
 		def year scope_value
-			scope_value[0..3].to_i			
+			scope_value.to_s[0..3].to_i			
 		end
 
 		def month scope_value
-			scope_value[-2, 2].to_i
+			scope_value.to_s[-2, 2].to_i
 		end
 
 		def date_to_scope date
