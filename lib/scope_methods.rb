@@ -75,18 +75,10 @@ module ScopeMethods
 			Scope.date_to_scope date
 		end
 
-		def prior!
-			@value = self.prior
-		end
-
 		def next
 			date = Scope.scope_to_date(@value).next_month
 			Scope.date_to_scope date
 		end
-
-		def next!
-			@value = self.next
-		end		
 
 		def to_i
 			@value.to_i
