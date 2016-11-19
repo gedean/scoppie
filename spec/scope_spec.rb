@@ -21,7 +21,11 @@ describe Scope do
 		expect(Scope.valid_year? 2016).to eq true
 	end
 	
-	it 'returns false to a invalid year' do
+	it 'returns false to a year minor than 2000' do
+		expect(Scope.valid_year? 1990).to eq false
+	end
+
+	it 'returns false to a year grather than 3000' do
 		expect(Scope.valid_year? 3001).to eq false
 	end
 
@@ -37,7 +41,7 @@ describe Scope do
 		expect(Scope.year '201610').to eq 2016
 	end
 
-	it 'creates a valid scope' do
-		expect(Scope.new(201610)).to eq true
+	it 'creates a valid scope instance' do
+		expect(Scope.new(201610).class).to eq Scope
 	end
 end

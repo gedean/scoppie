@@ -43,7 +43,7 @@ module ScopeMethods
 		end
 
 		def valid_year? year_in_number
-			year_in_number.between? 1900, 3000
+			year_in_number.between? 2000, 3000
 		end		
 	end
 
