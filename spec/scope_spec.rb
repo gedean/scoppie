@@ -1,6 +1,10 @@
 require_relative '../lib/scope'
 
 describe Scope do 
+	it 'fails' do 
+		expect(false).to eq true
+	end
+
 	it 'makes a valid scope string' do 
 		expect(Scope.build_scope_string 2016, 10).to eq '201610'
 	end
