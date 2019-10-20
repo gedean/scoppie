@@ -91,8 +91,24 @@ module ScopeMethods
 		def <=>(other)
 			to_date <=> other.to_date
 		end
+    
+		def span(end_scope)
+			(end_scope = Scope.new(end_scope)) unless end_scope.is_a?(Scope)
 
-private
+			raise "Current Scope (#{to_s}) bigger or equal to end scope (#{end_scope.to_s})" if (self >= end_scope)
+
+			scope_span = []
+			current_scope = Scope.new(to_s)
+
+			while current_scope <= end_scope
+				scope_span << current_scope
+					current_scope = current_scope.next
+			end
+			scope_span
+    end
+
+    private
+
 		def get_short_value
 			raise "year (#{year}) shorten than #{MIN_ACCEPTED_YEAR}" if  year < MIN_ACCEPTED_YEAR
 			"#{year - 2000}#{month_to_s}"
