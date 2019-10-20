@@ -8,7 +8,9 @@ class Scope
 
 	def initialize value
 		fail "Invalid Scope (#{value})" unless Scope.valid? value
-		@value = value
+		@value = value.to_s
+		@value.freeze
 		@short_value = get_short_value
+		@short_value.freeze
 	end
 end
